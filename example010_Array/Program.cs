@@ -23,9 +23,33 @@ void PrintArray(int[] col)
     }
 }
 
+int IndexOf (int [] collection, int find)
+{
+    int count = collection.Length;
+    int index = 0;
+    int position = -1;//может быть значение 0 по умолчанию (т.е. если введем не существующее значение, прогрмма выведет пощицию 0), 
+    //если ставим -1 - это искусственный приём. То есть, если элемента нет, значит, программа выведет -1.
+
+    while(index < count)
+    {
+    if(collection[index] == find)
+    {
+        position = index;
+        break; // останавливает выполнение после нахождения первого значения
+    }
+        index++;
+    }
+    return position;
+}
+
 int [] array = new int[10];
 FillArray(array);
 PrintArray(array);
+
+Console.WriteLine();
+
+int pos = IndexOf(array, 6);
+Console.WriteLine(pos);
 
 //Первый вариант:
 //int [] array = new int [10];
